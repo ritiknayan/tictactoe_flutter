@@ -60,20 +60,20 @@ io.on('connection', (socket) => {
     });
 });
 
-// mongoose.connect(DB).then(() => {                 // promise in js is = future in dart
-//     console.log("Connection successful!");
-// }).catch((e) => {
-//     console.log(e);
-// }); 
+mongoose.connect(DB).then(() => {                 // promise in js is = future in dart
+    console.log("Connection successful!");
+}).catch((e) => {
+    console.log(e);
+}); 
 
 
-mongoose
-  .set('strictQuery', false)
-  .connect(DB, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    app.listen(port, () => console.log(`Server running on port ${port}`));
-  })
-  .catch((error) => console.log(`${error} did not connect`));
+// mongoose
+//   .set('strictQuery', false)
+//   .connect(DB, { useNewUrlParser: true, useUnifiedTopology: true })
+//   .then(() => {
+//     // app.listen(port, () => console.log(`Server running on port ${port}`));
+//   })
+//   .catch((error) => console.log(`${error} did not connect`));
 
 server.listen(port,'0.0.0.0', () =>{
     console.log(`Server started and running on port ${port}`);

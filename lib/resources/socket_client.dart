@@ -6,8 +6,11 @@ class SocketClient {
   SocketClient._internal() {
     socket = IO.io("http://192.168.29.160:3000", <String, dynamic>{
       'transports': ['websocket'],
-      'autoConnect': true,
+      'autoConnect': false,
     });
+    socket!.on('connect', (_) => print('connect: ${socket!.id}'));
+    socket!.on('disconnect', (_) => {print('disconnected due to $_')});
+    socket!.on('fromServer', (_) => print(_));
     socket!.connect();
   }
 

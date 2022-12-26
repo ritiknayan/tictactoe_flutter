@@ -12,13 +12,16 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
- 
   @override
   Widget build(BuildContext context) {
+    // print(Provider.of<RoomDataProvider>(context).player1..socketID);
+    // print(Provider.of<RoomDataProvider>(context).player2..socketID);
     //  Provider.of<RoomDataProvider>(context).roomData.toString();
-    return  Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text( Provider.of<RoomDataProvider>(context).roomData.toString(),),
+        child: Text(
+          Provider.of<RoomDataProvider>(context).roomData.toString(),
+        ),
       ),
     );
   }
